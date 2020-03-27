@@ -17,4 +17,6 @@ cxx-cxx-caller: cxx-callee.o cxx-cxx-caller.o
 	$(CXX) -o $(@) $(CXXFLAGS) $(^)
 
 clean:
-	rm -f c-cxx-caller c-rs-caller cxx-cxx-caller c-cxx-caller.o c-rs-caller.o cxx-cxx-caller.o cxx-callee.o rs-callee.o
+	rm -f c-cxx-caller c-rs-caller cxx-cxx-caller \
+        c-cxx-caller.o c-rs-caller.o cxx-cxx-caller.o \
+        cxx-callee.o rs-callee.o
