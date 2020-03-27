@@ -3,7 +3,7 @@ pub struct Callee {
 }
 
 impl Callee {
-    pub extern fn PlusValue(&self, value: i32) -> i32 {
+    pub extern fn plus_value(&self, value: i32) -> i32 {
         return self.value + value;
     }
 }
