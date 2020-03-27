@@ -1,6 +1,11 @@
 #include <stdio.h>
 
-#include "c-callee.h"
+struct Callee {
+  int value;
+};
+
+struct Callee *_ZN6CalleeC1Ei(struct Callee *, int);
+int _ZN6Callee9PlusValueEi(struct Callee *, int);
 
 int main(void) {
   struct Callee c = {};

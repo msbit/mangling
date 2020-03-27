@@ -1,5 +1,8 @@
-c-caller
-c-caller.o
+c-cxx-caller
+c-cxx-caller.o
+c-rs-caller
+c-rs-caller.o
 cxx-callee.o
-cxx-caller
-cxx-caller.o
+cxx-cxx-caller
+cxx-cxx-caller.o
+rs-callee.o

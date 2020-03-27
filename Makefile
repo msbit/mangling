@@ -1,17 +1,19 @@
 CXXFLAGS=-g
 CFLAGS=-g
 
-OBJFILES=cxx-callee.o
-COBJFILES=c-caller.o
-CXXOBJFILES=cxx-caller.o
+%.o : %.rs
+	rustc --crate-type=lib --emit=obj $(<)
 
-all: c-caller cxx-caller
+all: c-cxx-caller c-rs-caller cxx-cxx-caller
 
-c-caller: $(OBJFILES) $(COBJFILES)
-	$(CC) -o c-caller $(CFLAGS) $(OBJFILES) $(COBJFILES)
+c-cxx-caller: cxx-callee.o c-cxx-caller.o
+	$(CC) -o $(@) $(CFLAGS) $(^)
 
-cxx-caller: $(OBJFILES) $(CXXOBJFILES)
-	$(CXX) -o cxx-caller $(OBJFILES) $(CXXOBJFILES)
+c-rs-caller: rs-callee.o c-rs-caller.o
+	$(CC) -o $(@) $(CFLAGS) $(^)
+
+cxx-cxx-caller: cxx-callee.o cxx-cxx-caller.o
+	$(CXX) -o $(@) $(CXXFLAGS) $(^)
 
 clean:
-	rm -f $(OBJFILES) $(COBJFILES) $(CXXOBJFILES) c-caller cxx-caller
+	rm -f c-cxx-caller c-rs-caller cxx-cxx-caller c-cxx-caller.o c-rs-caller.o cxx-cxx-caller.o cxx-callee.o rs-callee.o
