@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "callee.h"
+#include "c-callee.h"
 
 int main(void) {
   struct Callee c = {};

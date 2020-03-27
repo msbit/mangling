@@ -1,7 +1,7 @@
 CXXFLAGS=-g
 CFLAGS=-g
 
-OBJFILES=callee.o
+OBJFILES=cxx-callee.o
 COBJFILES=c-caller.o
 CXXOBJFILES=cxx-caller.o
 

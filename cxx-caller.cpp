@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "callee.hpp"
+#include "cxx-callee.hpp"
 
 int main(void) {
   Callee c = Callee(10);
