@@ -2,7 +2,10 @@ c-cxx-caller
 c-cxx-caller.o
 c-rust-caller
 c-rust-caller.o
+c-swift-caller
+c-swift-caller.o
 cxx-callee.o
 cxx-cxx-caller
 cxx-cxx-caller.o
 rust-callee.o
+swift-callee.o
