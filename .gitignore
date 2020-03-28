@@ -1,8 +1,8 @@
 c-cxx-caller
 c-cxx-caller.o
-c-rs-caller
-c-rs-caller.o
+c-rust-caller
+c-rust-caller.o
 cxx-callee.o
 cxx-cxx-caller
 cxx-cxx-caller.o
-rs-callee.o
+rust-callee.o
