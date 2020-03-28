@@ -1,9 +1,13 @@
 CXXFLAGS=-g
 CFLAGS=-g
 RUSTFLAGS=--crate-type=lib --emit=obj
+SWIFTFLAGS=-emit-object -parse-as-library
 
 %.o: %.rs
 	rustc -o $(@) $(RUSTFLAGS) $(<)
+
+%.o: %.swift
+	swiftc -o $(@) $(SWIFTFLAGS) $(<)
 
 all: c-cxx-caller c-rust-caller cxx-cxx-caller
 
@@ -20,11 +24,15 @@ c-rust-caller: rust-callee.o
 	$(CC) -o $(@) $(CFLAGS) $(^) c-rust-caller.o
 	git checkout -- c-rust-caller.c
 
+c-swift-caller: swift-callee.o c-swift-caller.o
+	$(CC) -o $(@) $(CFLAGS) $(^)
+
 cxx-cxx-caller: cxx-callee.o cxx-cxx-caller.o
 	$(CXX) -o $(@) $(CXXFLAGS) $(^)
 
 clean:
 	rm -f c-cxx-caller c-cxx-caller.o \
       c-rust-caller c-rust-caller.o \
+      c-swift-caller c-swift-caller.o \
       cxx-cxx-caller cxx-cxx-caller.o \
-      cxx-callee.o rust-callee.o
+      cxx-callee.o rust-callee.o swift-callee.o
