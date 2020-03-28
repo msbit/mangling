@@ -2,7 +2,7 @@ CXXFLAGS=-g
 CFLAGS=-g
 RUSTFLAGS=--crate-type=lib --emit=obj
 
-%.o : %.rs
+%.o: %.rs
 	rustc -o $(@) $(RUSTFLAGS) $(<)
 
 all: c-cxx-caller c-rust-caller cxx-cxx-caller
